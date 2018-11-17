@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    open: true,
+    open: false,
     port: 3000,
     contentBase: 'src',
     hot: true
