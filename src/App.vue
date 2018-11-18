@@ -45,6 +45,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .mint-header {
+    z-index: 100;
+  }
   .app-container {
     padding: 40px 0 50px 0;
     overflow-x: hidden;

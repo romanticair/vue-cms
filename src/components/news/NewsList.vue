@@ -48,7 +48,7 @@
       }
     },
     created() {
-      this.getNewsList()
+      // this.getNewsList()
     }
   }
 </script>

@@ -7,6 +7,7 @@
       <span>发表时间：{{ newsinfolist.add_time | dateFormat }}</span>
       <span>点击：{{ newsinfolist.click }} 次</span>
     </p>
+    <hr>
     <!--内容区域-->
     <div class="content" v-html="newsinfolist.content"></div>
     <!--评论子组件区域-->
@@ -30,7 +31,7 @@
       }
     },
     created() {
-      this.getnewsinfoList();
+      // this.getnewsinfoList();
     },
     methods: {
       getnewsinfoList() {
@@ -66,6 +67,7 @@
       justify-content: space-between;
     }
     .content {
+      padding-bottom: 5px;
       img {
         width: 100%;
       }

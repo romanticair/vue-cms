@@ -22,13 +22,13 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="">
+        <router-link to="/home/photolist">
           <img src="../../images/menu2.png" alt="">
           <div class="mui-media-body">图片分享</div>
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="">
+        <router-link to="/home/goodslist">
           <img src="../../images/menu3.png" alt="">
           <div class="mui-media-body">商品购买</div>
         </router-link>
@@ -59,27 +59,27 @@
   import { Toast } from "mint-ui"
   export default {
     data() {
-      return {
-        lunbotuList: [] // 保存轮播图的数组
+      return {// 保存轮播图的数组
+        lunbotuList: ['./../images/lunbo1.jpg','./../images/lunbo2.jpg',
+          './../images/lunbo3.jpg','./../images/lunbo4.jpg'
+        ]
       }
     },
     methods: {
       getLunBoTu(){
         // 获取轮播图数据的方法
-        /* 已跨域且不可访问
+        // 已跨域且不可访问
         this.$http.get("api/getlunbo").then(result => {
           if (result.body.status === 0) {
             this.lunbotuList = result.body.message
           } else {
             Toast("加载轮播图失败,使用手动增加的 o(╥﹏╥)o")
           }
-         }) */
-        let path = '../../images/lunbo'
-        this.lunbotuList = [path + '1.jpg',path + '2.jpg',path + '3.jpg',path + '4.jpg']
+         })
       }
     },
     created() {
-      this.getLunBoTu()
+      // this.getLunBoTu()
     }
   }
 </script>
