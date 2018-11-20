@@ -85,4 +85,35 @@
   + 缩略图组件变得如此简洁 ^_^.
 4. 商品页面只写了样式，方法也没写，全静态数据，慢慢欣赏吧。。。
 
+### Day 4
+1. 继续完善商品页面 goodslist 的数据交互
+  + 这里其实可以用另外一种方式写页面路由代替 router-link
+  + 也就是 this.$router.push 方法
+2. 接着写个 goodsinfo 获取更详细的商品信息页面
+  + 实现加入购物车时候，拿到选择的数量
+  + 按钮属于 goodsinfo 页面， 数字属于 numberbox 组件
+  + 涉及到了父子组件的嵌套，无法直接在 goodsinfo 页面zhong 中获取到选中的商品数量值
+  + 父向子传递方法，子调用这个方法，同时把数据当作参数传递给这个方法
+  + 同时在这里发现轮播图已经出现两次了，可以单独抽离出来，数字选择框组件也即将用到多次
+  + 所以也抽离出来到 subcomponent, 抽离的过程中涉及到父传子调的方法和属性传值，别乱混啦
+  + 也涉及到共同组件不同样式，:class=["": ""] 的灵活使用
+  + 解决
+3. 添加加入购物车小球
+  + 为动画加上 cubic-bezier(.4,-0.3,1,.68) 曲线效果
+  + 解决小球在不同布局和尺寸拉伸情况下的正常表现
+  + 突然间发现切换触摸模式，底部栏无法切换，提示忽略一个注册为 ‘passive’ 的监听器的事件类型
+  + 至今还不明白原理机制，也许是该组件内部对 tap 方法的触发受到了限制
+  + 为 ‘touchstart’ 的‘preventDefault()’ 调用
+  + 在此重新改了类名，对其原来的属性进行复制，但可以触发切换了，但提示还是存在
 
+
+### 总结
++ 本项目主要以 es6 语法和 vue 框架搭建的，很粗略，后台也没写
++ 骑马观花似的敲出了这个项目，过程中了解了 vue 框架，学习到了项目结构的搭建和逻辑的抽离
++ 涉及到了 v-for v-show v-model v-bind | [:] v-click | [@] v-html
++ vue 框架类的使用 :class=["class1", "class2"] :class={"trueclass": "true"}
++ el data methods created mounted router components watch store render filter
++ router 的 router-link && :to="url" router-view
++ 组件的自定义以及 mint-ui mui 组件的使用，滑块，轮播图，底部通栏，数字组件等和许多对功能支持的一些必要模块
++ vuex 的 Store 支持跨组件全局访问对象等等
++ 还有 --- 再说吧。。。

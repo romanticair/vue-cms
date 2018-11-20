@@ -4,6 +4,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
+  // 4.x 以上的webpack可以去掉entry, 只需要把 main.js 改名成 index.js
   entry: path.resolve(__dirname, './src/main.js'),
   output: {
     path: path.resolve(__dirname, './dist'),

@@ -25,7 +25,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import mui from "../../lib/mui/js/mui.min.js";
+  import mui from "../../lib/mui/js/mui.min.js"
   export default {
     data() {
       return {

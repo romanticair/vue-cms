@@ -1,17 +1,18 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="(url, i) in lunbotuList" :key="i">
-        <img :src="url" alt="">
-      </mt-swipe-item>
-      <div class="mint-swipe-indicators">
-        <div class="mint-swipe-indicator"></div>
-        <div class="mint-swipe-indicator"></div>
-        <div class="mint-swipe-indicator"></div>
-        <div class="mint-swipe-indicator"></div>
-      </div>
-    </mt-swipe>
+    <!--<mt-swipe :auto="4000">-->
+      <!--<mt-swipe-item v-for="(url, i) in lunbotuList" :key="i">-->
+        <!--<img :src="url" alt="">-->
+      <!--</mt-swipe-item>-->
+      <!--<div class="mint-swipe-indicators">-->
+        <!--<div class="mint-swipe-indicator"></div>-->
+        <!--<div class="mint-swipe-indicator"></div>-->
+        <!--<div class="mint-swipe-indicator"></div>-->
+        <!--<div class="mint-swipe-indicator"></div>-->
+      <!--</div>-->
+    <!--</mt-swipe>-->
+    <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
     <!-- 六宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -57,11 +58,15 @@
 
 <script>
   import { Toast } from "mint-ui"
+  import swiper from "../subcomponents/Swiper.vue"
   export default {
     data() {
       return {// 保存轮播图的数组
-        lunbotuList: ['./../images/lunbo1.jpg','./../images/lunbo2.jpg',
-          './../images/lunbo3.jpg','./../images/lunbo4.jpg'
+        lunbotuList: [
+          {img: './../images/lunbo1.jpg'},
+          {img: './../images/lunbo2.jpg'},
+          {img: './../images/lunbo3.jpg'},
+          {img: './../images/lunbo4.jpg'}
         ]
       }
     },
@@ -71,6 +76,7 @@
         // 已跨域且不可访问
         this.$http.get("api/getlunbo").then(result => {
           if (result.body.status === 0) {
+            // return {url:*} 再来个遍历给其加上img(轮播图需要)
             this.lunbotuList = result.body.message
           } else {
             Toast("加载轮播图失败,使用手动增加的 o(╥﹏╥)o")
@@ -80,6 +86,9 @@
     },
     created() {
       // this.getLunBoTu()
+    },
+    components: {
+      swiper
     }
   }
 </script>
